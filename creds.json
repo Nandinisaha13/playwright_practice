@@ -1,4 +1,7 @@
 {
     "name": "nandini",
-    "email": "nandini@example.com"
+    "email": "nandini@example.com",
+    "day": "13",
+    "month": "January",
+    "year": "1999"
 }
