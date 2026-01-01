@@ -3,5 +3,6 @@
     "email": "nandini@example.com",
     "day": "13",
     "month": "January",
-    "year": "1999"
+    "year": "1999",
+    "country": "Canada"
 }
