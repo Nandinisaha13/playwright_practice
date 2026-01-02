@@ -3,7 +3,7 @@ import time
 from playwright.sync_api import expect
 
 
-def test_register(invoke_browser, page):
+def test_register(invoke_browser, page): #test case 1
     page=invoke_browser
     with open("creds.json") as s:
         data= json.load(s)
@@ -27,4 +27,16 @@ def test_register(invoke_browser, page):
     page.locator("#address1").fill("Just a street address,jssi")
     page.locator("#address2").fill("optional")
     page.get_by_label("Country *").select_option(data["country"])
+    page.get_by_role("textbox", name="State *").fill("check")
+    page.get_by_label("City *", exact=True).fill("City")
+    page.locator("#zipcode").fill("373839")
+    page.get_by_role("textbox", name="Mobile Number *").fill("3938494940")
+    page.get_by_role("button", name="Create Account").click()
+    expect(page.locator("b:has-text('ACCOUNT CREATED!')")).to_be_visible()
+    page.get_by_role("link", name="Continue").click()
+    logged_in_text = f"Logged in as {data['name']}"
+    expect(page.get_by_text(logged_in_text, exact=True)).to_be_visible()
+    page.get_by_role("link", name="Delete Account").click()
+    expect(page.locator("b:has-text('ACCOUNT DELETED!')")).to_be_visible()
+
     time.sleep(4)
