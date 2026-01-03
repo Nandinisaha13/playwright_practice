@@ -50,8 +50,7 @@ def test_case2(invoke_browser, page):
     page.locator("//input[@data-qa='login-email']").fill("dummy")
     page.get_by_placeholder("Password", exact=True).fill("dummy")
     page.get_by_role("button", name="Login").click()
-    h=f"Logged in as {data['name']}"
-    expect(page.get_by_text(h, exact=True)).to_be_visible()
+    expect(page.get_by_text("Logged in as dummy", exact=True)).to_be_visible()
     page.get_by_text("Delete Account", exact=True).click()
     expect(page.locator("b:has-text('ACCOUNT DELETED!')")).to_be_visible()
 
