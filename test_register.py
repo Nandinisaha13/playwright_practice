@@ -47,7 +47,7 @@ def test_case2(invoke_browser, page):
         data= json.load(s)
     page.get_by_role("link", name="Signup / Login").click()
     expect(page.get_by_role("heading", name="Login to your account")).to_be_visible()
-    page.locator("//input[@data-qa='login-email']").fill("dummy")
+    page.locator("//input[@data-qa='login-email']").fill("dummy13@user.com")
     page.get_by_placeholder("Password", exact=True).fill("dummy")
     page.get_by_role("button", name="Login").click()
     expect(page.get_by_text("Logged in as dummy", exact=True)).to_be_visible()
