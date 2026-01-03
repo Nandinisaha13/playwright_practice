@@ -36,7 +36,22 @@ def test_register(invoke_browser, page): #test case 1
     page.get_by_role("link", name="Continue").click()
     logged_in_text = f"Logged in as {data['name']}"
     expect(page.get_by_text(logged_in_text, exact=True)).to_be_visible()
-    page.get_by_role("link", name="Delete Account").click()
+    page.get_by_text("Delete Account", exact=True).click()
     expect(page.locator("b:has-text('ACCOUNT DELETED!')")).to_be_visible()
 
     time.sleep(4)
+
+def test_case2(invoke_browser, page):
+    page=invoke_browser
+    with open("creds.json") as s:
+        data= json.load(s)
+    page.get_by_role("link", name="Signup / Login").click()
+    expect(page.get_by_role("heading", name="Login to your account")).to_be_visible()
+    page.locator("//input[@data-qa='login-email']").fill(data["email1"])
+    page.get_by_placeholder("Password", exact=True).fill("hello")
+    page.get_by_role("button", name="Login").click()
+    h=f"Logged in as {data['name']}"
+    expect(page.get_by_text(h, exact=True)).to_be_visible()
+    page.get_by_text("Delete Account", exact=True).click()
+    expect(page.locator("b:has-text('ACCOUNT DELETED!')")).to_be_visible()
+

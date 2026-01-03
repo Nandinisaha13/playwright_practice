@@ -1,8 +1,9 @@
 {
     "name": "nandini",
     "email": "nandini3@example.com",
-    "day": "13",
-    "month": "January",
-    "year": "1999",
+    "email1": "nandini@example.com",
+    "day": "19",
+    "month": "April",
+    "year": "2013",
     "country": "Canada"
 }

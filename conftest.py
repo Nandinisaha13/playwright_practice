@@ -3,5 +3,5 @@ import pytest
 
 @pytest.fixture(scope="function")
 def invoke_browser(page):
-    page.goto("http://automationexercise.com")
+    page.goto("https://automationexercise.com")
     yield page
