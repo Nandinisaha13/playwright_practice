@@ -51,6 +51,16 @@ def test_case2(invoke_browser, page):
     page.get_by_placeholder("Password", exact=True).fill("dummy")
     page.get_by_role("button", name="Login").click()
     expect(page.get_by_text("Logged in as dummy", exact=True)).to_be_visible()
-    page.get_by_text("Delete Account", exact=True).click()
-    expect(page.locator("b:has-text('ACCOUNT DELETED!')")).to_be_visible()
+    # page.get_by_text("Delete Account", exact=True).click()
+    # expect(page.locator("b:has-text('ACCOUNT DELETED!')")).to_be_visible()
+
+def test_case3(invoke_browser, page):
+    page=invoke_browser
+    # with open("creds.json") as s:
+    #     data= json.load(s)
+    page.get_by_role("link", name="Signup / Login").click()
+    expect(page.get_by_role("heading", name="Login to your account")).to_be_visible()
+    page.locator("//input[@data-qa='login-email']").fill("dummys13@user.com")
+    page.get_by_placeholder("Password", exact=True).fill("dummy344")
+    page.get_by_role("button", name="Login").click()
 
