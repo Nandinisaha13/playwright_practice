@@ -4,7 +4,7 @@ b= 1
 
 print(f"Start: {a}, {b}", end=',')
 
-for _ in range(2,count):
+for i in range(2,count):
     next_sum=a+b
 
     print(next_sum, end=",")
