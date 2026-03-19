@@ -1,12 +1,12 @@
 Name= "Nandini Saha"
 
-# char_list= list(Name)
+#char_list= list(Name)
  
 # i=0
 # j=len(Name)-1
 
 
-# while i <j:
+# while i < j:
 #     temp= char_list[i]
 #     char_list[i]= char_list[j]
 #     char_list[j]= temp
